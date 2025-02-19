@@ -62,6 +62,7 @@ exports.sendMatchedNotification = onDocumentUpdated(
 
                 const posterData = posterSnapshot.data();
                 const fcmToken = posterData.fcmToken;
+                const username = posterData.username; // Assuming 'username' field exists in the user document
 
                 if (!fcmToken) {
                     logger.error(`No FCM token for user ${posterId}`);
@@ -69,11 +70,11 @@ exports.sendMatchedNotification = onDocumentUpdated(
                 }
 
                 // Create notification message
-                const currentTime = new Date().toLocaleString();
+                const currentTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
                 const message = {
                     notification: {
                         title: "📬 New Post Match!",
-                        body: `Your post was matched at ${currentTime}`,
+                        body: `${username} matched your post in ${city} at ${currentTime}`,
                     },
                     token: fcmToken,
                 };
