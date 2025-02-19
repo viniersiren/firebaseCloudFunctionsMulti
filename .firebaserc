@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "dailystakes-eb9a5"
-  }
+    "default": "dailystakes-eb9a5",
+    "findr": "findr-52bd9"
+  },
+  "targets": {},
+  "etags": {}
 }
